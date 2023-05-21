@@ -145,7 +145,7 @@ class Main {
       this.grndLevel});
 
   Main.fromJson(Map<String, dynamic> json) {
-    temp = json['temp'];
+    temp = double.parse(json['temp'].toString());
     feelsLike = json['feels_like'];
     tempMin = json['temp_min'];
     tempMax = json['temp_max'];
@@ -171,22 +171,22 @@ class Main {
 
 class Wind {
   double? speed;
-  int? deg;
+  double? deg;
   double? gust;
 
   Wind({this.speed, this.deg, this.gust});
 
   Wind.fromJson(Map<String, dynamic> json) {
     speed = double.parse(json['speed'].toString());
-    deg = json['deg'];
-    gust = json['gust'];
+    deg = double.parse(json['deg'].toString());
+    // gust = double.parse(json['gust'].toString());
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['speed'] = speed;
     data['deg'] = deg;
-    data['gust'] = gust;
+    // data['gust'] = gust;
     return data;
   }
 }

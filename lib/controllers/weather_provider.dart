@@ -5,7 +5,7 @@ import '../models/weather_model.dart';
 
 class WeatherDataProvider extends ChangeNotifier{
 
- var cities = ['Delhi','Noida','Mohali','Kolkata', 'Mumbai', 'New York', 'Patna'];
+ var cities = ['Delhi','Noida','Kolkata', 'Mumbai', 'New York', 'Patna'];
   bool _isLoading = false;
   bool get loading => _isLoading;
   final List<WetherCityModel> _wetherCityData = [];
@@ -25,14 +25,15 @@ class WeatherDataProvider extends ChangeNotifier{
   }
 
   getWhetherByCity(String city) async {
-    setLoading(true);
+    // setLoading(true);
+
     var resp = await ApiCalls.getWhtherInfoByCity(city: city);
     WetherCityModel dataModel = WetherCityModel.fromJson(resp);
-    // debugPrint(dataModel.visibility.toString());
     if (dataModel.cod == "200") {
       _wetherCityData.add(dataModel);
     }
-    setLoading(false);
+    // setLoading(false);
+
     notifyListeners();
   }
  

@@ -186,7 +186,7 @@ class WeatherDetails extends StatelessWidget {
                               child: SizedBox(
                                   width: double.infinity,
                                   child: Text(
-                                      (data.main!.humidity ?? 0).toString())),
+                                      "${data.main!.humidity ?? 0}%")),
                             ),
                           ],
                         ),
