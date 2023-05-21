@@ -28,7 +28,7 @@ class WeatherDataProvider extends ChangeNotifier{
     setLoading(true);
     var resp = await ApiCalls.getWhtherInfoByCity(city: city);
     WetherCityModel dataModel = WetherCityModel.fromJson(resp);
-    debugPrint(dataModel.visibility.toString());
+    // debugPrint(dataModel.visibility.toString());
     if (dataModel.cod == "200") {
       _wetherCityData.add(dataModel);
     }

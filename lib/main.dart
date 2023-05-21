@@ -29,10 +29,10 @@ class MyApp extends StatelessWidget {
               fontFamily: "Fira Sans",
               primarySwatch: Colors.blue,
               appBarTheme: const AppBarTheme(
-                  backgroundColor: Colors.white,
+                  backgroundColor: Color(0xffefefef),
                   foregroundColor: Colors.black,
                   elevation: 0),
-              scaffoldBackgroundColor: Colors.white),
+              scaffoldBackgroundColor:const Color(0xffefefef),),
           home: isOnBoardingRequired
               ? const OnBoardingPage()
               : const HomeScreen()),
