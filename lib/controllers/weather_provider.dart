@@ -18,23 +18,22 @@ class WeatherDataProvider extends ChangeNotifier{
   }
 
   getData() async {
+    setLoading(true);
     for (String city in cities) {
       await getWhetherByCity(city);
     }
+    setLoading(false);
     notifyListeners();
   }
 
   getWhetherByCity(String city) async {
-    // setLoading(true);
-
     var resp = await ApiCalls.getWhtherInfoByCity(city: city);
     WetherCityModel dataModel = WetherCityModel.fromJson(resp);
     if (dataModel.cod == "200") {
       _wetherCityData.add(dataModel);
     }
-    // setLoading(false);
-
     notifyListeners();
   }
+  // https://github.com/DeepakStark123/my_weather_app
  
 }
